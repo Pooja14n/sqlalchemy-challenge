@@ -123,18 +123,18 @@ def start_date(start):
     results = session.query(measurement.date, func.min(measurement.tobs), func.avg(measurement.tobs), func.max(measurement.tobs)).filter(measurement.date >= starting_date).group_by(measurement.date).all()
 
     
-    start_date_list = []
-    for date, tmin, tavg, tmax in results:
-        start_dict = {}
-        start_dict['Date'] = date
-        start_dict['TMIN'] = tmin
-        start_dict['TAVG'] = tavg
-        start_dict['TMAX'] = tmax
-        start_date_list.append(start_dict)
+    # start_date_list = []
+    # for date, tmin, tavg, tmax in results:
+    #     start_dict = {}
+    #     start_dict['Date'] = date
+    #     start_dict['TMIN'] = tmin
+    #     start_dict['TAVG'] = tavg
+    #     start_dict['TMAX'] = tmax
+    #     start_date_list.append(start_dict)
 
     
     session.close()
-    start_dt = list(np.ravel(start_date_list))
+    start_dt = list(np.ravel(results))
     return jsonify(start_dt)
 
 
@@ -149,18 +149,18 @@ def start_end_date(start, end):
     
     results = session.query(measurement.date, func.min(measurement.tobs), func.avg(measurement.tobs), func.max(measurement.tobs)).filter(measurement.date >= starting_date).filter(measurement.date <= ending_date).group_by(measurement.date).all()
 
-    start_end_list = []
-    for date, tmin, tmax, tavg in results:
-        start_end_dict = {}
-        start_end_dict['Date'] = date
-        start_end_dict['TMIN'] = tmin
-        start_end_dict['TMAX'] = tmax
-        start_end_dict['TAVG'] = tavg
-        start_end_list.append(start_end_dict)
+    # start_end_list = []
+    # for date, tmin, tmax, tavg in results:
+    #     start_end_dict = {}
+    #     start_end_dict['Date'] = date
+    #     start_end_dict['TMIN'] = tmin
+    #     start_end_dict['TMAX'] = tmax
+    #     start_end_dict['TAVG'] = tavg
+    #     start_end_list.append(start_end_dict)
 
     
     session.close()
-    start_end_dt = list(np.ravel(start_end_list))
+    start_end_dt = list(np.ravel(results))
     return jsonify(start_end_dt)
 
             
