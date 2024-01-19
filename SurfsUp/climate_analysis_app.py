@@ -64,38 +64,19 @@ def precipitation():
     
     results = session.query(measurement.date, measurement.prcp).all()
 
-    prcp_results = []
-
-    for date, prcp in results:
-        prcp_dict = {}
-        prcp_dict[date] = prcp
-        prcp_results.append(prcp_dict) 
-
     session.close()
-    return jsonify(prcp_results)
+    precipitation = list(np.ravel(results))
+    return jsonify(precipitation)
 
 # 3. "/api/v1.0/stations"
 @app.route("/api/v1.0/stations")
 def stations():
-    
-          
+              
     results1 = session.query(station.station, station.name, station.latitude, station.longitude, station.elevation).all()
-        
-    station_res = []
-    for station, name, latitude, longitude, elevation in results1:
-        station_dict = {}
-        #station_dict[Id] = id
-        station_dict[station] = station
-        station_dict[name] = name
-        station_dict[latitude] = latitude
-        station_dict[longitude] = longitude
-        station_dict[elevation] = elevation
-        station_res.append(station_dict)
-    
+  
     session.close()
     stations = list(np.ravel(results1))
     return jsonify(stations)
-
 
 
 # 4. "/api/v1.0/tobs"
@@ -122,21 +103,9 @@ def start_date(start):
     starting_date = dt.datetime.strptime(start,'%Y-%m-%d').date()
     results = session.query(measurement.date, func.min(measurement.tobs), func.avg(measurement.tobs), func.max(measurement.tobs)).filter(measurement.date >= starting_date).group_by(measurement.date).all()
 
-    
-    # start_date_list = []
-    # for date, tmin, tavg, tmax in results:
-    #     start_dict = {}
-    #     start_dict['Date'] = date
-    #     start_dict['TMIN'] = tmin
-    #     start_dict['TAVG'] = tavg
-    #     start_dict['TMAX'] = tmax
-    #     start_date_list.append(start_dict)
-
-    
     session.close()
     start_dt = list(np.ravel(results))
     return jsonify(start_dt)
-
 
 
 # 5(b) "/api/v1.0/<start>/<end>"  
@@ -149,16 +118,6 @@ def start_end_date(start, end):
     
     results = session.query(measurement.date, func.min(measurement.tobs), func.avg(measurement.tobs), func.max(measurement.tobs)).filter(measurement.date >= starting_date).filter(measurement.date <= ending_date).group_by(measurement.date).all()
 
-    # start_end_list = []
-    # for date, tmin, tmax, tavg in results:
-    #     start_end_dict = {}
-    #     start_end_dict['Date'] = date
-    #     start_end_dict['TMIN'] = tmin
-    #     start_end_dict['TMAX'] = tmax
-    #     start_end_dict['TAVG'] = tavg
-    #     start_end_list.append(start_end_dict)
-
-    
     session.close()
     start_end_dt = list(np.ravel(results))
     return jsonify(start_end_dt)
