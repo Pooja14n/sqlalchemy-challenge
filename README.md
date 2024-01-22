@@ -79,3 +79,15 @@ Now that the initial analysis is complete, we have to design a Flask API based o
 ![8](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/ee987f42-ea10-4f2a-b061-0575a4c64b5b)
 
 
+# References
+Referred to various class activity exercises, got support from BCS Learning Assistant, Assistant Instructor, and websites for: Documentation for SQLAlchemy.
+
+# Files submitted including this README File
+Folder -> SurfsUp 
+  a. Resources folder: 
+    i. hawaii.sqlite
+    ii. hawaii_measurements.csv
+    iii. hawaii_stations.csv 
+  b. climate_analysis.ipynb (contains the SQL queries)  
+  c. climate_analysis_app.py (contains the Schema Table queries)
+  
