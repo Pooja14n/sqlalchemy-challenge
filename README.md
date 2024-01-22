@@ -50,18 +50,32 @@ Now that the initial analysis is complete, we have to design a Flask API based o
   a. Start at the homepage.
   b. List all the available routes.
 
+![3](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/a25aaa29-2789-41d4-99dd-7f4fbd8d53bd)
+
 2. `/api/v1.0/precipitation`
   a. Convert the query results from your precipitation analysis (i.e. retrieve only the last 12 months of data) to a dictionary using date as the key and prcp as the value.
   b. Return the JSON representation of your dictionary.
 
+![4](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/4232a1a1-75f5-47cf-8eba-e68de0f9ed9d)
+
 3. `/api/v1.0/stations`
   a. Return a JSON list of stations from the dataset.
+
+![5](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/e9e6d33c-bee3-46ff-b18d-0b178f918ae1)
 
 4. `/api/v1.0/tobs`
   a. Query the dates and temperature observations of the most-active station for the previous year of data.
   b. Return a JSON list of temperature observations for the previous year.
 
+![6](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/9e633091-640f-4482-9988-e499ba7a6bd4)
+
 5. `/api/v1.0/<start> and /api/v1.0/<start>/<end>`
   a. Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
   b. For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greater than or equal to the start date.
   c. For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
+
+![7](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/c9f92223-1af1-46ac-b258-35d799da0c56)
+
+![8](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/ee987f42-ea10-4f2a-b061-0575a4c64b5b)
+
+
