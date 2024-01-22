@@ -42,3 +42,26 @@ Close the session at the end of the notebook.
   c. Plot the results as a histogram with bins=12, as the following image shows:
 ![2](https://github.com/Pooja14n/sqlalchemy-challenge/assets/144713762/f6cc94ff-1eb0-4ae1-885a-829b85510032)
 5. Close your session.
+
+# Part 2: Design the Climate App
+Now that the initial analysis is complete, we have to design a Flask API based on the queries that we just developed. To do so, we use Flask to create the routes as follows:
+
+1. `/`
+  a. Start at the homepage.
+  b. List all the available routes.
+
+2. `/api/v1.0/precipitation`
+  a. Convert the query results from your precipitation analysis (i.e. retrieve only the last 12 months of data) to a dictionary using date as the key and prcp as the value.
+  b. Return the JSON representation of your dictionary.
+
+3. `/api/v1.0/stations`
+  a. Return a JSON list of stations from the dataset.
+
+4. `/api/v1.0/tobs`
+  a. Query the dates and temperature observations of the most-active station for the previous year of data.
+  b. Return a JSON list of temperature observations for the previous year.
+
+5. `/api/v1.0/<start> and /api/v1.0/<start>/<end>`
+  a. Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
+  b. For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greater than or equal to the start date.
+  c. For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
